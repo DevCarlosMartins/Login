@@ -39,3 +39,11 @@ body {
       margin-top: 10px;
       color: #333;
     }
+
+    .listaUsuarios{
+      width: 100%;
+      border-collapse: collapse;
+      flex-direction: column;
+      margin-top: 20px;
+      background-color: #f9f9f9;
+    }
