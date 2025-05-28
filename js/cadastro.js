@@ -28,12 +28,24 @@ function listar(){
             <td>${objeto.usuario}</td>
             <td>${objeto.senha}</td>
             <td>
-                <button onclick="editarUsuario()">Editar</button>
-                <button onclick="removerUsuario()">Remover</button>
+                <button class="btn-lista" onclick="editarUsuario()">Editar</button>
+                <button class="btn-lista" id="removerUsuario" onclick="removerUsuario()">Remover</button>
             </td>
         `;
         tabela.appendChild(linha);
     });
 }
+
+function removerUsuario(index){
+  const listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+  if (confirm("Deseja remover este usuário?")){
+  listaUsuarios.splice(index,1);
+  let listaJson = JSON.stringify(listaUsuarios);
+  localStorage.setItem("usuarios", listaJson);
+  listar();
+  }
+
+};
 
 listar();
