@@ -1,0 +1,32 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="cssdashboardStyle.css">
+ 
+</head>
+<body>
+  <div class="container">
+    <h2>Bem-vindo ao Painel</h2>
+    <p id="boasVindas"></p>
+    <button onclick="logout()">Sair</button>
+  </div>
+
+  <script>
+    const usuario = localStorage.getItem("usuarioLogado");
+    if (!usuario) {
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("boasVindas").textContent = `Olá, ${usuario}!`;
+    }
+
+    function logout() {
+      localStorage.removeItem("usuarioLogado");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
